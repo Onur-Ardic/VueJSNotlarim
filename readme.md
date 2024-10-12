@@ -315,6 +315,103 @@ const publishedBooksMessage = computed(() => {
   <p>Has published books:</p>
   <span>{{ publishedBooksMessage }}</span>
 </template>
+```
 
+## Dinamik CSS Kullanımı
 
+- Dinamik inlineCSS Kullanımı
+
+* Değişken durumlarına göre stile inline olarak aşağıda ki gibi müdahale edebiliriz.
+
+```bash
+<script setup>
+import { ref } from 'vue'
+
+const firstBox = ref(false)
+const secondBox = ref(false)
+const chooseBoxStyle = (number) => {
+  console.log(number)
+  if (number === '1') {
+    firstBox.value = !firstBox.value
+  } else if (number === '2') {
+    secondBox.value = !secondBox.value
+  }
+}
+</script>
+
+<template>
+  <header>
+    <div class="wrapper">
+      <div
+        class="box"
+        @click="chooseBoxStyle('1')"
+        :style="{ borderColor: firstBox ? 'darkmagenta' : 'gray' }"
+      ></div>
+      <div
+        class="box"
+        @click="chooseBoxStyle('2')"
+        :style="{ borderColor: secondBox ? 'darkmagenta' : 'gray' }"
+      ></div>
+    </div>
+  </header>
+</template>
+
+<style scoped>
+.box {
+  width: 200px;
+  height: 200px;
+  transition: background-color 0.5s;
+  margin: 10px;
+  border: dashed;
+}
+</style>
+```
+
+- Dinamik Class
+
+Değişken durumlarına göre class bilgisine aşağıda ki gibi müdahale edebiliriz.
+
+```bash
+
+<script setup>
+import { ref } from 'vue'
+
+const firstBox = ref(false)
+const secondBox = ref(false)
+const chooseBoxStyle = (number) => {
+  console.log(number)
+  if (number === '1') {
+    firstBox.value = !firstBox.value
+  } else if (number === '2') {
+    secondBox.value = !secondBox.value
+  }
+}
+</script>
+
+<template>
+  <header>
+    <div class="wrapper">
+      <div class="box" :class="{ selected: firstBox }" @click="chooseBoxStyle('1')"></div>
+      <div
+        class="box"
+        @click="chooseBoxStyle('2')"
+        :style="{ borderColor: secondBox ? 'darkmagenta' : 'gray' }"
+      ></div>
+    </div>
+  </header>
+</template>
+
+<style scoped>
+.box {
+  width: 200px;
+  height: 200px;
+  transition: background-color 0.5s;
+  margin: 10px;
+  border: dashed;
+}
+
+.selected {
+  border-color: darkmagenta;
+}
+</style>
 ```
