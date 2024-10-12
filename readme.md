@@ -157,6 +157,8 @@ export default router
 
 | Diğer bileşenlere dokunmadan VueJS de temel konulara başlayalım.
 
+---
+
 ## Data Binding ve Property Tanımlamaları
 
 ```bash
@@ -257,6 +259,8 @@ const setValue = (e) => {
 <style scoped></style>
 ```
 
+---
+
 ## Two Way Data Binding v-model
 
 | Bu property ile uzun uzun eventlarla uğraşmak yerine tek bir property ile input içerisinden value değerini alıyoruz.
@@ -319,6 +323,8 @@ const publishedBooksMessage = computed(() => {
   <span>{{ publishedBooksMessage }}</span>
 </template>
 ```
+
+---
 
 ## Dinamik CSS Kullanımı
 
@@ -418,3 +424,46 @@ const chooseBoxStyle = (number) => {
 }
 </style>
 ```
+
+---
+
+## VueJS ' de koşullu durumlar
+
+- VueJS de koşullu durumları açıklamak için klasik TODO örneği yapalım
+
+```bash
+<script setup>
+import { ref } from 'vue'
+
+const todos = ref([])
+const newTodo = ref('')
+
+const addTodo = () => {
+  if (newTodo.value) {
+    todos.value.push({ text: newTodo.value, completed: false })
+  }
+}
+</script>
+
+<template>
+  <header>
+    <h3>TODO</h3>
+    <input type="text" v-model="newTodo" placeholder="Enter a new TODO" />
+    <button @click="addTodo(newTodo)">Add</button>
+
+    <p v-if="todos.length == 0">Todo Bulunmamaktadır</p>
+    <p v-else>TODO LİST</p>
+
+    <ul class="todos">
+      <li v-for="todo in todos" :key="todo.text">
+        {{ todo.text }}
+      </li>
+    </ul>
+  </header>
+</template>
+
+<style scoped></style>
+
+```
+
+     VueJS de gördüğünüz gibi koşullu durum kullanımları oldukça basit. VueJS yapısı itibari   ile React ve Angular'a benzemektedir. Eğer daha önce Angular ile çalıştıysanız bu kullanımlar size yabancı gelmez
