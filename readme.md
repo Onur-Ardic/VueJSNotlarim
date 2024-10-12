@@ -76,7 +76,10 @@ onMounted(() => {
 
 ## Kurulum
 
-- VueJS i tıpkı Bootstrap import eder gibi head içine koyacağımız bir link ile import edebiliyoruz. Ancak bu çok tavsiye edilmeyen bir yöntem olduğu için VueJS CLİ ile kurulum yapacağım sizler merak ederseniz diğer kurulum yöntemini kullanabilirsiniz.
+- VueJS i tıpkı Bootstrap import eder gibi head içine koyacağımız bir link ile import edebiliyoruz. Ancak bu çok tavsiye edilmeyen bir yöntem olduğu için VueJS CLİ veya NPM ile kurulum yapabilirsiniz ben npm ile kuracağım. sizler merak ederseniz diğer kurulum yöntemini kullanabilirsiniz.
+
+        OptionsAPI kullanmak için CLI ile kurulum yapılırken CompositionAPI ile kurmak için
+        NPM ile kurulum yapılır.
 
 - Bir klasör oluşturarak terminali açalım ve şunu yazalım.
 
@@ -86,24 +89,24 @@ onMounted(() => {
 
 Benim cevaplarım aşağıda ki şekilde;
 
-√ TypeScript Eklensin mi? ... Hayır
+    √ TypeScript Eklensin mi? ... Hayır
 
-√ JSX Desteği Eklensin mi? ... Hayır
+    √ JSX Desteği Eklensin mi? ... Hayır
 
-√ Tek Sayfa Uygulama geliştirilmesi için Vue Router eklensin mi? ... / Evet
+    √ Tek Sayfa Uygulama geliştirilmesi için Vue Router eklensin mi? ... / Evet
 
-√ Durum yönetimi için Pinia eklensin mi? ... / Evet
+    √ Durum yönetimi için Pinia eklensin mi? ... / Evet
 
-√ Birim Testi için Vitest eklensin mi? ... / Evet
+    √ Birim Testi için Vitest eklensin mi? ... / Evet
 
-√ Uçtan Uca Test Çözümü Eklensin mi? » Hayır
+    √ Uçtan Uca Test Çözümü Eklensin mi? » Hayır
 
-√ Kod kalitesi için ESLint eklensin mi? ... / Evet
+    √ Kod kalitesi için ESLint eklensin mi? ... / Evet
 
-√ Kod formatlama için Prettier eklensin mi? ... / Evet
+    √ Kod formatlama için Prettier eklensin mi? ... / Evet
 
-√ Hata ayıklama için Vue DevTools 7 eklentisi eklensin mi? (deneysel) ...
-/ Evet
+    √ Hata ayıklama için Vue DevTools 7 eklentisi eklensin mi? (deneysel) ...
+    / Evet
 
 | Kurulum bittikten sonra dosya içine giderek npm i yazalım ve sonrasında "npm run dev" diyerek projeyi başlatalım.
 
