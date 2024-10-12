@@ -466,4 +466,8 @@ const addTodo = () => {
 
 ```
 
-     VueJS de gördüğünüz gibi koşullu durum kullanımları oldukça basit. VueJS yapısı itibari   ile React ve Angular'a benzemektedir. Eğer daha önce Angular ile çalıştıysanız bu kullanımlar size yabancı gelmez
+     VueJS de gördüğünüz gibi koşullu durum kullanımları oldukça basit. VueJS yapısı itibari
+
+     ile React ve Angular'ın karışıımı gibidir ikisinden de bazı özellikler alarak bunu kendi syntax yapısına göre düzenler. Eğer daha önce Angular ile çalıştıysanız bu
+
+     kullanımlar size yabancı gelmez
