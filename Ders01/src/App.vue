@@ -15,7 +15,7 @@ const addTodo = () => {
   <header>
     <h3>TODO</h3>
     <input type="text" v-model="newTodo" placeholder="Enter a new TODO" />
-    <button @click="addTodo(newTodo)">Add</button>
+    <button @click="addTodo">Add</button>
 
     <p v-if="todos.length == 0">Todo Bulunmamaktadır</p>
     <p v-else>TODO LİST</p>
