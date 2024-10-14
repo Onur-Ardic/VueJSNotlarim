@@ -473,3 +473,155 @@ const addTodo = () => {
      syntax yapısına göre adapte eder. Eğer daha önce Angular ile çalıştıysanız bu
 
      kullanımlar size yabancı gelmez
+
+## VueJS İleri Seviye konulara
+
+---
+
+## VueJS de Component Oluşturma ve Entegrasyonu(OptionsAPI) ve Props Geçişleri
+
+| Eğer daha önce ReactJS kullandıysanız VueJS de component mantığı neredeyse ReactJS ile aynı. Bu yüzden eminim yabancı gelmeyecektir. Components
+
+| Ufak bir örnekle açıklayalım.
+
+Öncelikle klasör yapımızın düzeni açısından src klasörü altında bulunan components klasörüne bir Home klasörü açarak indexte kullanacağımız komponentleri burada açalım.
+
+TodoList.vue adında bir dosya açarak şunları yazalım.
+
+```bash
+
+
+<script>
+export default {
+  name: 'todoList' // componenti export ile dışarıya açtık
+}
+</script>
+
+<template>
+  <div>
+    <li v-for="todo in todos" :key="todo.text">
+      {{ todo.text }}
+    </li>
+  </div>
+</template>
+
+
+
+```
+
+| App.vue ya gelerek import edelim.
+
+```bash
+<script setup>
+import { ref } from 'vue'
+import TodoList from './components/Home/TodoList.vue' // componenti import ettik
+
+export default{
+  components: {
+    TodoList // Componenti burada tanımlamamız gerekiyor
+  },
+  data() {
+    props:{
+    todos,
+    }
+    return {
+      todos,
+      newTodo
+    }
+  },
+  methods: {
+    addTodo
+  }
+}
+
+</script>
+
+<template>
+  <header>
+    <h3>TODO</h3>
+    <input type="text" v-model="newTodo" placeholder="Enter a new TODO" />
+    <button @click="addTodo">Add</button>
+
+    <p v-if="todos.length == 0">Todo Bulunmamaktadır</p>
+    <p v-else>TODO LİST</p>
+
+    <ul class="todos">
+      <TodoList :todos = todos />
+      // componenti çağırdık
+    </ul>
+  </header>
+</template>
+
+<style scoped></style>
+
+```
+
+      ! Uyarı !
+      Ben compositionAPI kullandığım için bu kod ben de hata verecektir.
+      Eğer OptionsAPI kullanıyorsanız yukarda ki gibi import etmeniz gerekiyor.
+
+## VueJS de Component Oluşturma ve Entegrasyonu(CompositionAPI) ve Props Geçişleri
+
+| CompositionAPI kullanımında biraz daha işler farklı ancak biraz daha kolay bir kullanımı var.
+
+```bash
+#TodoList.vue
+<script setup>
+const { todos } = defineProps({
+  todos: {
+    type: Array,
+    required: true
+  }
+})
+// Propsları bu componente geçirdik
+</script>
+
+<template>
+  <div>
+    <li v-for="(todo, index) in todos" :key="index">
+      {{ todo.text }}
+    </li>
+  </div>
+</template>
+
+<style scoped></style>
+
+```
+
+````bash
+## App.vue
+<script setup>
+import { ref } from 'vue'
+import TodoList from './components/Home/TodoList.vue' // componenti import
+
+const todos = ref([])
+const newTodo = ref('')
+
+const addTodo = () => {
+  if (newTodo.value) {
+    todos.value.push({ text: newTodo.value, completed: false })
+  }
+}
+</script>
+
+<template>
+  <header>
+    <h3>TODO</h3>
+    <input type="text" v-model="newTodo" placeholder="Enter a new TODO" />
+    <button @click="addTodo">Add</button>
+
+    <p v-if="todos.length == 0">Todo Bulunmamaktadır</p>
+    <p v-else>TODO LİST</p>
+
+    <ul class="todos">
+      <TodoList :todos="todos" />
+      <!-- Componenti Çağırdık -->
+    </ul>
+  </header>
+</template>
+
+<style scoped></style>
+
+```
+
+````

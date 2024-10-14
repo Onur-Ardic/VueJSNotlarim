@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import TodoList from './components/Home/TodoList.vue' // componenti import
 
 const todos = ref([])
 const newTodo = ref('')
@@ -21,9 +22,8 @@ const addTodo = () => {
     <p v-else>TODO LİST</p>
 
     <ul class="todos">
-      <li v-for="todo in todos" :key="todo.text">
-        {{ todo.text }}
-      </li>
+      <TodoList :todos="todos" />
+      <!-- Componenti Çağırdık -->
     </ul>
   </header>
 </template>
