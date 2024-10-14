@@ -557,7 +557,7 @@ export default{
 ```
 
       ! Uyarı !
-      Ben compositionAPI kullandığım için bu kod ben de hata verecektir.
+      Ben compositionAPI kullandığım için bu kod bende hata verecektir.
       Eğer OptionsAPI kullanıyorsanız yukarda ki gibi import etmeniz gerekiyor.
 
 ## VueJS de Component Oluşturma ve Entegrasyonu(CompositionAPI) ve Props Geçişleri
