@@ -1,6 +1,6 @@
 ## VueJS Notlarım
 
-- Merhabalar, çalıştığım firmadan dolayı biraz VueJS tarafına yöneldim. VueJS öğrenirken almış olduğum notları VueJS öğrenmek isteyen dostlarım için bir dokümantasyon haline getirmeye çalıştım. Umarım sizlere faydalı olur.
+- Merhabalar bir süredir VueJS üzerine yoğunlaşıyorum. VueJS öğrenirken almış olduğum notları VueJS öğrenmek isteyen dostlarım için bir dokümantasyon haline getirmeye çalıştım. Umarım sizlere faydalı olur.
 
 - Şimdiden iyi çalışmalar.
 
@@ -640,8 +640,7 @@ const addTodo = () => {
 
       üzerinde değişiklik yapabiliriz.
 
-
-      ```bash
+```bash
 
 <script setup>
 const name = 'Onur'
@@ -660,7 +659,7 @@ const handleClick = () => {
 
 <style scoped></style>
 
-      ```
+```
 
 | Yukarda ki gibi bir kullanım yaptığımızda butona tıklayınca değer değişmeyecektir.
 
