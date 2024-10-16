@@ -625,3 +625,65 @@ const addTodo = () => {
 ```
 
 ````
+
+## CompositionAPI
+
+| Evet VueJS temellerini tamamladık. Bundan sonra CompositionAPI kullarak seviyeyi bir tık daha ileriye alacağız.
+
+      Değişken atamalarımda ref kullanmamızın sebebi şudur;
+
+      Bizler compositionAPI üzerinde başlangıçta "x" olarak atanan bir değeri
+
+      sonrasında "y" olarak değiştirmek istersek bu durum bize bir hata
+
+      fırlatacaktır. Ancak başlangıçta değerin referansını tutup bu referans
+
+      üzerinde değişiklik yapabiliriz.
+
+
+      ```bash
+
+<script setup>
+const name = 'Onur'
+
+const handleClick = () => {
+  name = 'John'
+  console.log('Button clicked!')
+}
+</script>
+
+<template>
+  <h1>Hello, {{ name }}!</h1>
+
+<button @click="handleClick">Değiştir</button>
+</template>
+
+<style scoped></style>
+
+      ```
+
+| Yukarda ki gibi bir kullanım yaptığımızda butona tıklayınca değer değişmeyecektir.
+
+Doğrusu ise şu şekilde;
+
+```bash
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('Onur')
+
+const handleClick = () => {
+  name.value = 'John'
+  console.log('Button clicked!')
+}
+</script>
+
+<template>
+  <h1>Hello, {{ name }}!</h1>
+
+  <button @click="handleClick">Değiştir</button>
+</template>
+
+<style scoped></style>
+
+```

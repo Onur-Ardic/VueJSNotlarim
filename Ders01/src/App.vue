@@ -1,31 +1,18 @@
 <script setup>
 import { ref } from 'vue'
-import TodoList from './components/Home/TodoList.vue' // componenti import
 
-const todos = ref([])
-const newTodo = ref('')
+const name = ref('Onur')
 
-const addTodo = () => {
-  if (newTodo.value) {
-    todos.value.push({ text: newTodo.value, completed: false })
-  }
+const handleClick = () => {
+  name.value = 'John'
+  console.log('Button clicked!')
 }
 </script>
 
 <template>
-  <header>
-    <h3>TODO</h3>
-    <input type="text" v-model="newTodo" placeholder="Enter a new TODO" />
-    <button @click="addTodo">Add</button>
+  <h1>Hello, {{ name }}!</h1>
 
-    <p v-if="todos.length == 0">Todo Bulunmamaktadır</p>
-    <p v-else>TODO LİST</p>
-
-    <ul class="todos">
-      <TodoList :todos="todos" />
-      <!-- Componenti Çağırdık -->
-    </ul>
-  </header>
+  <button @click="handleClick">Değiştir</button>
 </template>
 
 <style scoped></style>
