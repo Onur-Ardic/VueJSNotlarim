@@ -2,6 +2,8 @@
 
 - Merhabalar bir süredir VueJS üzerine yoğunlaşıyorum. VueJS öğrenirken almış olduğum notları VueJS öğrenmek isteyen dostlarım için bir dokümantasyon haline getirmeye çalıştım. Umarım sizlere faydalı olur.
 
+|| Gelecek, alıştığımız şeylerden farklıdır. Sürekli gelişim ve değişim içerisinde olarak yüksek motivasyon ve güçlü iletişimle yeni tohumlar ekmeli, insanların içerisindeki potansiyeli ortaya çıkararak başarıya beraber yürümeliyiz.
+
 - Şimdiden iyi çalışmalar.
 
 ---
