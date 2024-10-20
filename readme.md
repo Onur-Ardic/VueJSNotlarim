@@ -694,3 +694,98 @@ const handleClick = () => {
 <style scoped></style>
 
 ```
+
+---
+
+## Componentlerin Local ve Global Olarak İmport Edilmesi
+
+- Global İmport
+  || Global import yapmak için aşağıda ki gibi bir yol izlememiz gerekiyor.
+
+```bash
+// main.js
+
+
+
+import './assets/main.css'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+import router from './router'
+import AppFooter from './components/Globals/AppFooter.vue'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.component('app-footer', AppFooter) // bu şekilde tanımladık
+app.mount('#app')
+```
+
+```bash
+#AppFooter.vue
+
+<template>
+  <footer>
+    <h3>Footer</h3>
+  </footer>
+</template>
+```
+
+```bash
+// app.vue
+
+
+
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('Onur')
+
+const handleClick = () => {
+  name.value = 'John'
+  console.log('Button clicked!')
+}
+</script>
+
+<template>
+  <h1>Hello, {{ name }}!</h1>
+
+  <button @click="handleClick">Değiştir</button>
+
+  <app-footer /> // Global olarak import ettik
+</template>
+
+<style scoped></style>
+
+```
+
+- Local İmport
+
+|| Local import yöntemi bir çok kütüphaneden alışık olduğumuz import yöntemi
+
+```bash
+<script setup>
+import { ref } from 'vue'
+import Header from '@/components/Globals/AppHeader.vue' // Componenti import ettik
+const name = ref('Onur')
+
+const handleClick = () => {
+  name.value = 'John'
+  console.log('Button clicked!')
+}
+</script>
+
+<template>
+  <Header /> // Ekrana basma işlemini yaptık
+  <h1>Hello, {{ name }}!</h1>
+
+  <button @click="handleClick">Değiştir</button>
+
+  <app-footer />
+</template>
+
+<style scoped></style>
+
+```
